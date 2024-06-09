@@ -1,0 +1,15 @@
+{
+  "timeZone": "Europe/London",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "bmLibraryTracking",
+        "libraryId": "1GIpX-loeYv2swfT2mcYCUvduAXtoYdzenzIYXt4M_1YLmlN7eMrO1h_P",
+        "version": "7",
+        "developmentMode": false
+      }
+    ]
+  }
+}
