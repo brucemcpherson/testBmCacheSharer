@@ -1,0 +1,15 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "bmCachePoint",
+        "version": "8",
+        "libraryId": "1GOjfvSZL31TxlF61QT1fVNIKnZw9UeqF_2tkPQ5D1n4BBth-yKc6AznH",
+        "developmentMode": false
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
