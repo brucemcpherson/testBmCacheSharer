@@ -8,4 +8,4 @@ For more info on testBmCacheSharer try https://ramblings.mcpher.com/?s=testBmCac
 ## Library reference
 1iIGHkjc5nX2_leaw15vPblBA3Wc3AOZNCV1CDXrFkVTfBjT5cUMSMStU
 
-Now update manually with details of this project - this skeleton file is committed only when there is no README.md in the repo.
+More info at https://ramblings.mcpher.com/gassnippets2/sharing-cache-between-google-workspace-projects/
