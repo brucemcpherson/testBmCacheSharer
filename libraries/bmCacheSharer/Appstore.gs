@@ -110,7 +110,7 @@ const AppStore = {
     // finally get a crushing cacheservice to use
     const cacher = Exports.newCacher({
       cachePoint: cacheService,
-      expiry: Math.min (maxExpiry, expiry || maxExpiry),
+      expiry: Math.min(maxExpiry, expiry || maxExpiry),
       prefix: communityKey || '-'
     })
 
@@ -146,15 +146,21 @@ const AppStore = {
    * if its not there, it'll do a refresh using the args supplied
    * if it is in cache args are ignored
    */
-  getValue(name, { version, refreshOnMissing = true, payload } = {}, ...args) {
+  getValue(name, { version, refreshOnMissing = true, payload, log = false } = {}, ...args) {
 
     const valueKey = this.getValueKey({ name, version, payload })
+    const cacher = this.getCacher({ name, version })
+
+    if (!cacher) {
+      throw `no cacher found for ${name}:${version} - did you set a refresher?`
+    }
+
     // first check memory
     let v = this.expiredCheck(valueKey)
 
     // it wasn't in memory - maybe its in cache
     if (Utils.isNull(v)) {
-      const cacher = this.getCacher({ name, version })
+
       v = cacher.get(valueKey)
 
       // if it was in cache,put it in memory for next time
@@ -163,13 +169,13 @@ const AppStore = {
         this.memory.set(valueKey, {
           value: v,
           expires: this.getExpires({ name, version })
-        }) 
-      } 
+        })
+      } else if (log) {
+        console.log (`...found ${name}:${version} in cache`)
+      }
 
-    } else if (args.length) {
-      console.log(
-        `...warning - value was found in cache - refresh arguments ignored for ${name}-${version}`
-      )
+    } else if(log) {
+      console.log (`...found ${name}:${version} in memory`)
     }
 
     // if it was in neither then refresh
