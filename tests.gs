@@ -68,7 +68,7 @@ const t = () => {
     const ipGeo = ({ name, version, payload }) => {
       // handle no payload if one is mandatory
       if(!payload) return null
-
+      console.log ('hitting the api')
       const { ip } = payload
       const url = `https://ipinfo.io/${ip}/geo`
       const response = UrlFetchApp.fetch(url)
